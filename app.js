@@ -2,11 +2,11 @@ const express = require('express');
 
 const app = express()
 
-const IndexRouter = require('./routes/user');
+const userRouter = require('./routes/user');
 
 
 // console.log(process.env);
-app.use('/user', IndexRouter);
+app.use('/user', userRouter);
 
 // const port = process.env.PORT;
 
