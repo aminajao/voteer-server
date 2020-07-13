@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const userController = require('../controllers/userController');
+// const userController = require('../controllers/userController');
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
-router.get('/create-password', userController.generateUserPassword);
+
+
+
 const key = process.env.SECRET_KEY || 'secret'
+
+
 router.post('/register', (req,res)=>{
-    const today = new Date()
+    // const today = new Date()
     const userData ={
         email:req.body.email,
         department:req.body.department,
@@ -79,4 +83,6 @@ router.post('/register', (req,res)=>{
             res.send('error:' + err)
         })
   })
+
+  
 module.exports = router;

@@ -6,7 +6,12 @@ const app = require('./app');
 dotenv.config({path: './config.env'});
 // console.log(process.env)
 
-const DB = 'mongodb://localhost/Evote'
+
+//for local database
+// const DB = 'mongodb://localhost/Evote'
+
+//for remote database
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
