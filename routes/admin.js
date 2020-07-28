@@ -9,6 +9,16 @@ const User = require('../models/user')
 const Candidate = require('../models/Candidate')
 
 
+router.get('/',async(req,res)=>{
+    try {
+        const candidates = await Candidate.find();
+        if (!candidates) throw Error('No candidate registered yet');
+    
+        res.status(200).json(candidates);
+      } catch (e) {
+        res.status(400).json({ msg: e.message });
+      }
+})
 router.get('/candidates',async(req,res)=>{
     try {
         const candidates = await Candidate.find();
